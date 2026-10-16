@@ -31,6 +31,24 @@ GPU indices are logical indices after any `CUDA_VISIBLE_DEVICES` mask. `doctor` 
 
 The launch command automatically downloads data, verifies the adapters' expected counts, builds frame caches, benchmarks representative training and inference, and freezes the final plan. Downloading/preprocessing counts against the 48-hour deadline. Existing caches are reused after checksum verification.
 
+## Home-directory quotas and local dataset storage
+
+The full datasets do not fit in a 25 GB home directory. DVS Gesture alone can occupy about 15 GB before frame caching; CIFAR10-DVS also retains download chunks, its archive, and extracted recordings. Filesystem free space shown by `df` or `doctor` does not account for a per-user home quota. Check `quota -s` as well.
+
+For a **new run**, put datasets on a larger writable local/scratch volume and keep results in your home directory:
+
+```bash
+SAST_DATA_DIR=$(mktemp -d /var/tmp/sast-data.XXXXXXXX)
+printf '%s\n' "$SAST_DATA_DIR"
+.venv/bin/python run_paper_experiments.py run \
+  --gpus 0,1,2,3,4,5 --microbatch 4 --threads 2 \
+  --data "$SAST_DATA_DIR" --output ./runs/paper_48h_local --budget-hours 48
+```
+
+Use the same printed data path when resuming; do not run `mktemp` again. Verify the volume's free space and your server's scratch retention policy first. Local temporary storage can be removed; checkpoints and reports stay under the home-directory output path.
+
+For an **existing run**, changing the canonical `--data` path changes its frozen configuration. To preserve it, stop the runner, move only `data/raw` and `data/frames` to local storage using verified transfers, then replace those two subdirectories with symlinks to their destinations. Keep the `data` directory itself and the output directory in place. Rerun the original launch command; verified downloads/caches and the original deadline are reused. Do not delete source files until their transfers have succeeded.
+
 ## What fits into the two-day protocol
 
 The requested maximum matrix is **84 tuning fits, 140 confirmation fits, five causal experiment jobs, and 28 diagnostic jobs**, plus a cheap analytic toy sweep. Each causal job contains one common pretraining fit and 12 continuation arms. The first seed also includes three short adaptation fits. Before research training, measured throughput chooses 3–5 confirmation seeds and a common fraction of the requested epoch budgets. It retains longer training before adding seeds, applies a 1.5× timing safety factor, and reserves 20% of the remaining time. Every method in a case receives the same resulting budget rule.
