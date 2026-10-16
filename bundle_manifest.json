@@ -1,0 +1,22 @@
+{
+  "sha256": {
+    "run_paper_experiments.py": "e3cf0e6259b3f5dc3646e997dfdaff75f7aaf7130899c6ab1b79632102498f80",
+    "src/sast_core.py": "f3fb0edaca0730ebe0eef4f7c5e4a00e3070c86b12e976b3b0d6b05e161ed74a",
+    "src/colab_support.py": "9f6e2214cc677431fe8583421b87e43246a44381b2a192d5d78825f3c530edde",
+    "src/replication_experiments.py": "44bca4c2f805b59b9dcb7b3a1afbad4e79640f88d0851b5ef5686f9e8bd7cdb9",
+    "src/cifar10dvs_download.py": "a37112f2dbeb1e5392ce0c1d9f6fb1f53ab1ab051006b6b5551a56fa02c169a0",
+    "src/cifar10dvs_study.py": "68afef8316b3302cfbadf645ae9949cbfb203b82fbddab23e02acb13153c9930",
+    "src/paper_suite.py": "6ef376f21f49cd391cb7d5f17a854631bd53ed2f234431d1ad45a2c8733652e4",
+    "src/paper_suite_models.py": "e0b397faebb3d3ed8c3f7fe56f49735287bea6d42912fc7a7525f09e3f97f9fc",
+    "src/paper_suite_data.py": "b2b61f08a2c4b69596bd8196f0dc637879e630e8b3281f1ad7bc1761982a5aec",
+    "src/paper_suite_analysis.py": "c00dce9ac6bd4a7d0bd5b940bc07708fbfacc4d73423310e85d48f1f8b09bbff",
+    "requirements/requirements-paper-linux.txt": "3184c394a8d06752bb0b6e578390e65a670bbeb1bc3985fd5f0175149e860c93",
+    "docs/paper_experiments.md": "25e19e55ec04cf0c3c279803bfc49507940046e21ef6d9b616e29c1bf256031e",
+    "paper_48h.json": "73b7e80fcbb9de4643f8976f8622452ae778e0a9d53adcfcd2d12bd140e02e98",
+    "tests/test_paper_suite.py": "48afce7f2f61d892b3bede838b878b3c8aa6ce1d479e2e6095e5369c61b9bc17",
+    "tests/conftest.py": "bda704163871b58fa8cacb6a25e11d7a7255dbdcce2d147469f89c415d6a4928",
+    "README.md": "20d8453a27ba3743e6479083eb4d9d32a672b9dd1c9d1a49f3a18b731dea1413",
+    ".gitignore": "9e0f7ffc6e8c7aee50dd3f30bc51ada1624f6dc7475e2dc8a1417a760ef38769",
+    "docs/paper_suite_validation.json": "8ac2f48a3f79552b9ca77137fff90a89786553c155fdd462164ebb4a05d9b82c"
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "ablation": {
+    "batch_factors": [
+      0.5,
+      2.0,
+      4.0
+    ],
+    "betas": [
+      0.01,
+      0.1,
+      10.0
+    ],
+    "datasets": [],
+    "detach_reset": true,
+    "leaks": [
+      0.5,
+      0.75,
+      0.99
+    ],
+    "lr_factors": [
+      0.1,
+      10.0
+    ],
+    "margin_targets": [
+      0.05,
+      0.1,
+      0.5
+    ],
+    "methods": [
+      "erm2x",
+      "sast",
+      "hard_sg"
+    ],
+    "radii": [
+      0.0,
+      0.005,
+      0.01,
+      0.1,
+      0.2
+    ],
+    "seeds": 5,
+    "slopes": [
+      1.0,
+      10.0,
+      25.0
+    ],
+    "time_bins": [
+      8,
+      32,
+      64
+    ],
+    "train_fractions": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "width_factors": [
+      0.5,
+      2.0
+    ]
+  },
+  "adaptation_fractions": [
+    0.1
+  ],
+  "analysis": {
+    "attack_epsilons": [
+      0.05
+    ],
+    "attack_starts": 1,
+    "attack_steps": 3,
+    "bounds_examples": 32,
+    "corruption_levels": [
+      0.25,
+      0.5
+    ],
+    "examples": 128,
+    "geometry_examples": 32,
+    "geometry_seeds": 1,
+    "grid_size": 5,
+    "hessian_steps": 4,
+    "homotopy": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "noise_batch_factors": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "noise_batches": 8,
+    "pgd_starts": 1,
+    "pgd_steps": 3,
+    "planes": 1,
+    "probe_train": 512,
+    "probe_validation": 256,
+    "radii": [
+      0.05,
+      0.4
+    ],
+    "ridge": [
+      1e-06,
+      0.0001,
+      0.01,
+      1.0
+    ],
+    "seeds": 1,
+    "timing_iterations": 10
+  },
+  "architectures": {
+    "cifar10dvs": [
+      "cnn2"
+    ],
+    "dvsgesture": [
+      "cnn2",
+      "cnn4"
+    ],
+    "nmnist": [
+      "cnn2"
+    ],
+    "shd": [
+      "mlp2"
+    ]
+  },
+  "batch_size": {
+    "cifar10dvs": 16,
+    "dvsgesture": 8,
+    "nmnist": 32,
+    "shd": 64
+  },
+  "budget": {
+    "hours": 48.0,
+    "minimum_epoch_fraction": 0.25,
+    "minimum_seeds": 3,
+    "reserve_fraction": 0.2,
+    "safety_factor": 1.5
+  },
+  "calibration": {
+    "examples": 256,
+    "grid": [
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "maximum": 8.0,
+    "minimum": 0.015625,
+    "rounds": 1
+  },
+  "causal_datasets": [
+    "dvsgesture"
+  ],
+  "data_root": "./data",
+  "datasets": [
+    "dvsgesture",
+    "cifar10dvs",
+    "shd"
+  ],
+  "epochs": {
+    "cifar10dvs": 25,
+    "dvsgesture": 30,
+    "nmnist": 20,
+    "shd": 20
+  },
+  "leak": 0.5,
+  "limit_eval_per_class": null,
+  "limit_train_per_class": null,
+  "margin_target": 0.25,
+  "methods": [
+    "erm2x",
+    "sast",
+    "sam",
+    "asam",
+    "hard_sg",
+    "margin",
+    "sast_margin"
+  ],
+  "pilot_seeds": [
+    100
+  ],
+  "seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004
+  ],
+  "slope": 1.0,
+  "split_seeds": [
+    2026
+  ],
+  "steps_per_epoch": null,
+  "synthetic": false,
+  "threshold": 1.0,
+  "time_bins": {
+    "cifar10dvs": 16,
+    "dvsgesture": 16,
+    "nmnist": 16,
+    "shd": 64
+  },
+  "toy": {
+    "leaks": [
+      0.5,
+      0.9
+    ],
+    "radii": [
+      0.001,
+      0.02,
+      0.1
+    ],
+    "slopes": [
+      1.0,
+      5.0,
+      25.0
+    ],
+    "time_bins": [
+      4,
+      16,
+      64
+    ]
+  },
+  "tuning": {
+    "beta": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "candidates": 3,
+    "input_penalty": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "lr": [
+      0.0003,
+      0.001,
+      0.003
+    ],
+    "rho": [
+      0.05,
+      0.2,
+      0.4
+    ],
+    "sgd_lr": [
+      0.01,
+      0.03,
+      0.1
+    ],
+    "weight_decay": [
+      0.0,
+      0.0001,
+      0.001
+    ]
+  },
+  "validation_speakers": 2,
+  "version": 1,
+  "warmup_fraction": 0.6,
+  "widths": {
+    "cnn2": [
+      16,
+      32
+    ],
+    "cnn4": [
+      16,
+      32,
+      64,
+      64
+    ],
+    "mlp2": [
+      256,
+      128
+    ]
+  }
+}

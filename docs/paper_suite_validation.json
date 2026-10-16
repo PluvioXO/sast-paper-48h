@@ -1,0 +1,107 @@
+{
+  "bundle": {
+    "bytes": 102026,
+    "path": "sast_paper_48h.zip",
+    "sha256": "2f9c5103ff890441ab52e4edfb0b7a83519f65c2cab44289380727a604936504"
+  },
+  "cuda_available": false,
+  "forced_deadline": {
+    "exit_code": 124,
+    "hours": 0.0008,
+    "partial_report_preserved": true,
+    "status": {
+      "ablate": {
+        "completed": 0,
+        "failed": 0,
+        "total": 46
+      },
+      "analysis": {
+        "completed": 0,
+        "failed": 0,
+        "total": 84
+      },
+      "causal": {
+        "completed": 0,
+        "failed": 0,
+        "total": 4
+      },
+      "confirm": {
+        "completed": 0,
+        "failed": 0,
+        "total": 168
+      },
+      "toy": {
+        "completed": 1,
+        "failed": 0,
+        "total": 1
+      },
+      "tune": {
+        "completed": 28,
+        "failed": 0,
+        "total": 84
+      }
+    }
+  },
+  "platform": "macOS-15.6-arm64-arm-64bit",
+  "python": "3.12.12",
+  "scope": "CPU unit checks and synthetic workflows only; no real-data training or six-GPU runtime claim",
+  "source_sha256": {
+    "run_paper_experiments.py": "e3cf0e6259b3f5dc3646e997dfdaff75f7aaf7130899c6ab1b79632102498f80",
+    "src/cifar10dvs_download.py": "a37112f2dbeb1e5392ce0c1d9f6fb1f53ab1ab051006b6b5551a56fa02c169a0",
+    "src/cifar10dvs_study.py": "68afef8316b3302cfbadf645ae9949cbfb203b82fbddab23e02acb13153c9930",
+    "src/colab_support.py": "9f6e2214cc677431fe8583421b87e43246a44381b2a192d5d78825f3c530edde",
+    "src/paper_suite.py": "6ef376f21f49cd391cb7d5f17a854631bd53ed2f234431d1ad45a2c8733652e4",
+    "src/paper_suite_analysis.py": "c00dce9ac6bd4a7d0bd5b940bc07708fbfacc4d73423310e85d48f1f8b09bbff",
+    "src/paper_suite_data.py": "b2b61f08a2c4b69596bd8196f0dc637879e630e8b3281f1ad7bc1761982a5aec",
+    "src/paper_suite_models.py": "e0b397faebb3d3ed8c3f7fe56f49735287bea6d42912fc7a7525f09e3f97f9fc",
+    "src/replication_experiments.py": "44bca4c2f805b59b9dcb7b3a1afbad4e79640f88d0851b5ef5686f9e8bd7cdb9",
+    "src/sast_core.py": "f3fb0edaca0730ebe0eef4f7c5e4a00e3070c86b12e976b3b0d6b05e161ed74a"
+  },
+  "standalone_bundle_tests_passed": 29,
+  "standalone_smoke": {
+    "all_pilots_exclude_test_metrics": true,
+    "cached_rerun_passed": true,
+    "causal_checkpoints_identical_within_seed": true,
+    "causal_example_budgets_matched": true,
+    "complete": true,
+    "figure_fonts_type3": false,
+    "numerical_bound_violations": 0,
+    "status": {
+      "ablate": {
+        "completed": 46,
+        "failed": 0,
+        "total": 46
+      },
+      "analysis": {
+        "completed": 84,
+        "failed": 0,
+        "total": 84
+      },
+      "causal": {
+        "completed": 4,
+        "failed": 0,
+        "total": 4
+      },
+      "confirm": {
+        "completed": 168,
+        "failed": 0,
+        "total": 168
+      },
+      "toy": {
+        "completed": 1,
+        "failed": 0,
+        "total": 1
+      },
+      "tune": {
+        "completed": 84,
+        "failed": 0,
+        "total": 84
+      }
+    },
+    "synthetic": true,
+    "synthetic_figures_marked": true
+  },
+  "torch": "2.14.0",
+  "validated_utc": "2026-10-16T19:52:42.319616+00:00",
+  "workspace_tests_passed": 42
+}
