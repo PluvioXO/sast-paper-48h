@@ -23,13 +23,15 @@ python -m pip install -r requirements/requirements-paper-linux.txt
 python run_paper_experiments.py doctor --gpus 0,1,2,3,4,5 --data /mnt/ssd/sast_data
 python run_paper_experiments.py plan
 python run_paper_experiments.py run \
-  --gpus 0,1,2,3,4,5 --microbatch 4 --threads 2 \
+  --gpus 0,1,2,3,4,5 --microbatch 64 --threads 2 \
   --data /mnt/ssd/sast_data --output /mnt/ssd/sast_48h --budget-hours 48
 ```
 
 GPU indices are logical indices after any `CUDA_VISIBLE_DEVICES` mask. `doctor` executes a CUDA convolution and backward pass on every selected GPU, catching incompatible wheels/drivers before downloading data. It also reports free GPU memory and disk space. No CUDA toolkit compilation, NCCL setup, or distributed training launch is required.
 
 The launch command automatically downloads data, verifies the adapters' expected counts, builds frame caches, benchmarks representative training and inference, and freezes the final plan. Downloading/preprocessing counts against the 48-hour deadline. Existing caches are reused after checksum verification.
+
+For this fixed preset on 8 GB RTX 2080 GPUs, use `--microbatch 64`. The effective training batches remain 8 for DVS Gesture, 16 for CIFAR10-DVS, and 64 for SHD. Short isolated SAST benchmarks measured training-step speedups of 1.7–1.8×, 3.2×, and 16.8× respectively versus microbatch 4; these are not full-run speedup claims. Paired update, inference, and Hessian checks fit within 1.44 GiB of allocated tensor memory. The [execution validation record](paper_suite_microbatch_validation.json) records the measurements. The CLI retains its conservative default of 4 for custom configurations; the explicit launch option selects 64.
 
 ## Home-directory quotas and local dataset storage
 
@@ -41,7 +43,7 @@ For a **new run**, put datasets on a larger writable local/scratch volume and ke
 SAST_DATA_DIR=$(mktemp -d /var/tmp/sast-data.XXXXXXXX)
 printf '%s\n' "$SAST_DATA_DIR"
 .venv/bin/python run_paper_experiments.py run \
-  --gpus 0,1,2,3,4,5 --microbatch 4 --threads 2 \
+  --gpus 0,1,2,3,4,5 --microbatch 64 --threads 2 \
   --data "$SAST_DATA_DIR" --output ./runs/paper_48h_local --budget-hours 48
 ```
 
@@ -92,9 +94,9 @@ python run_paper_experiments.py init paper_48h.json
 python run_paper_experiments.py plan --config paper_48h.json
 
 # Run selected stages; subsequent commands must use the same configuration/data/output.
-python run_paper_experiments.py run --stages toy,tune \
+python run_paper_experiments.py run --stages toy,tune --microbatch 64 \
   --data /mnt/ssd/sast_data --output /mnt/ssd/sast_48h
-python run_paper_experiments.py run --stages confirm,causal,analysis,report \
+python run_paper_experiments.py run --stages confirm,causal,analysis,report --microbatch 64 \
   --data /mnt/ssd/sast_data --output /mnt/ssd/sast_48h
 ```
 

@@ -1,0 +1,241 @@
+{
+  "scope": "Short isolated CUDA execution benchmarks and numerical/memory checks on cached training/validation inputs; full experiment completion and full-run speedup are not established.",
+  "training_source_git_commit": "dd36dd5f8dc85d05adb0029d6879b9e49e6b0cb4",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 2080",
+    "nominal_vram_gib": 8,
+    "benchmark_gpu_count": 1,
+    "training_gpu_count": 6,
+    "torch": "2.14.0+cu126",
+    "cuda": "12.6",
+    "cpu_threads": 2
+  },
+  "precision": "float32; effective batches, epochs, data, optimizer and learning schedules retained",
+  "measurement": "Each timing uses two warmup SAST updates and three timed SAST updates at one fixed batch pair, through the original runner benchmark.",
+  "verification": "One paired SAST+margin AdamW update at microbatch 4 and 64 per model, smooth/hard/surrogate inference with diagnostics, and two Hessian-vector iterations on 32 validation examples. Parameter comparison tolerance rtol=1e-4, atol=2e-5.",
+  "selected_microbatch": 64,
+  "timings": {
+    "cifar10dvs_cnn2_t16_s2026": {
+      "4": {
+        "case": "cifar10dvs_cnn2_t16_s2026",
+        "counts": {
+          "test": 1000,
+          "train": 8000,
+          "validation": 1000
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0019401057623326778,
+        "microbatch": 4,
+        "pair_example_seconds": 0.012207685504108667,
+        "peak_allocated_gib": 0.1371469497680664
+      },
+      "8": {
+        "case": "cifar10dvs_cnn2_t16_s2026",
+        "counts": {
+          "test": 1000,
+          "train": 8000,
+          "validation": 1000
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0009712854865938425,
+        "microbatch": 8,
+        "pair_example_seconds": 0.006466505156519513,
+        "peak_allocated_gib": 0.3124380111694336
+      },
+      "16": {
+        "case": "cifar10dvs_cnn2_t16_s2026",
+        "counts": {
+          "test": 1000,
+          "train": 8000,
+          "validation": 1000
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0005826622014865279,
+        "microbatch": 16,
+        "pair_example_seconds": 0.0037707791004019478,
+        "peak_allocated_gib": 0.5917158126831055
+      }
+    },
+    "dvsgesture_cnn2_t16_s2026": {
+      "4": {
+        "case": "dvsgesture_cnn2_t16_s2026",
+        "counts": {
+          "test": 264,
+          "train": 967,
+          "validation": 110
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0023272684775292873,
+        "microbatch": 4,
+        "pair_example_seconds": 0.012133990918907026,
+        "peak_allocated_gib": 0.1294870376586914
+      },
+      "8": {
+        "case": "dvsgesture_cnn2_t16_s2026",
+        "counts": {
+          "test": 264,
+          "train": 967,
+          "validation": 110
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0011710829567164183,
+        "microbatch": 8,
+        "pair_example_seconds": 0.007116706809028983,
+        "peak_allocated_gib": 0.30475854873657227
+      }
+    },
+    "dvsgesture_cnn4_t16_s2026": {
+      "4": {
+        "case": "dvsgesture_cnn4_t16_s2026",
+        "counts": {
+          "test": 264,
+          "train": 967,
+          "validation": 110
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.004582121223211289,
+        "microbatch": 4,
+        "pair_example_seconds": 0.019540999395151932,
+        "peak_allocated_gib": 0.12905311584472656
+      },
+      "8": {
+        "case": "dvsgesture_cnn4_t16_s2026",
+        "counts": {
+          "test": 264,
+          "train": 967,
+          "validation": 110
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.002301829634234309,
+        "microbatch": 8,
+        "pair_example_seconds": 0.010894318615707258,
+        "peak_allocated_gib": 0.3043246269226074
+      }
+    },
+    "shd_mlp2_t64_s2026": {
+      "4": {
+        "case": "shd_mlp2_t64_s2026",
+        "counts": {
+          "test": 2264,
+          "train": 6806,
+          "validation": 1350
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.007087312359362841,
+        "microbatch": 4,
+        "pair_example_seconds": 0.03173948239418678,
+        "peak_allocated_gib": 0.043375492095947266
+      },
+      "8": {
+        "case": "shd_mlp2_t64_s2026",
+        "counts": {
+          "test": 2264,
+          "train": 6806,
+          "validation": 1350
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0032210763078182937,
+        "microbatch": 8,
+        "pair_example_seconds": 0.016159905562138494,
+        "peak_allocated_gib": 0.04345560073852539
+      },
+      "16": {
+        "case": "shd_mlp2_t64_s2026",
+        "counts": {
+          "test": 2264,
+          "train": 6806,
+          "validation": 1350
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0017370277782902122,
+        "microbatch": 16,
+        "pair_example_seconds": 0.007519339550829803,
+        "peak_allocated_gib": 0.04575920104980469
+      },
+      "32": {
+        "case": "shd_mlp2_t64_s2026",
+        "counts": {
+          "test": 2264,
+          "train": 6806,
+          "validation": 1350
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0008826428093016148,
+        "microbatch": 32,
+        "pair_example_seconds": 0.003774212304657946,
+        "peak_allocated_gib": 0.050154685974121094
+      },
+      "64": {
+        "case": "shd_mlp2_t64_s2026",
+        "counts": {
+          "test": 2264,
+          "train": 6806,
+          "validation": 1350
+        },
+        "device": "cuda:0",
+        "forward_example_seconds": 0.0004344605724327266,
+        "microbatch": 64,
+        "pair_example_seconds": 0.0018868593081909542,
+        "peak_allocated_gib": 0.058155059814453125
+      }
+    }
+  },
+  "checks": {
+    "cifar10dvs_cnn2_t16_s2026": {
+      "hessian": {
+        "iterations": 2,
+        "largest_ritz_value": 28.219787464937248,
+        "note": "finite-step Lanczos estimate on a fixed validation subset; not the exact spectrum",
+        "operator_norm_lower_estimate": 28.219787464937248,
+        "smallest_ritz_value": -0.0015821629148471553
+      },
+      "max_parameter_update_difference": 2.1979212760925293e-7,
+      "peak_allocated_gib": 1.4328899383544922,
+      "same_effective_batch": 16
+    },
+    "dvsgesture_cnn2_t16_s2026": {
+      "hessian": {
+        "iterations": 2,
+        "largest_ritz_value": 31.780211268645676,
+        "note": "finite-step Lanczos estimate on a fixed validation subset; not the exact spectrum",
+        "operator_norm_lower_estimate": 31.780211268645676,
+        "smallest_ritz_value": 0.000059116910247716294
+      },
+      "max_parameter_update_difference": 7.717317203059793e-7,
+      "peak_allocated_gib": 1.4251694679260254,
+      "same_effective_batch": 8
+    },
+    "dvsgesture_cnn4_t16_s2026": {
+      "hessian": {
+        "iterations": 2,
+        "largest_ritz_value": 3.7989422622476883,
+        "note": "finite-step Lanczos estimate on a fixed validation subset; not the exact spectrum",
+        "operator_norm_lower_estimate": 3.7989422622476883,
+        "smallest_ritz_value": -0.00014877639386739973
+      },
+      "max_parameter_update_difference": 0.000012721866369247437,
+      "peak_allocated_gib": 1.4261298179626465,
+      "same_effective_batch": 8
+    },
+    "shd_mlp2_t64_s2026": {
+      "hessian": {
+        "iterations": 2,
+        "largest_ritz_value": 0.11061776695957966,
+        "note": "finite-step Lanczos estimate on a fixed validation subset; not the exact spectrum",
+        "operator_norm_lower_estimate": 0.11061776695957966,
+        "smallest_ritz_value": -0.00015629863735162252
+      },
+      "max_parameter_update_difference": 0.000004911795258522034,
+      "peak_allocated_gib": 0.07021427154541016,
+      "same_effective_batch": 64
+    }
+  },
+  "estimated_workload_speedup_from_short_timings": 4.78474475126575,
+  "estimated_gpu_seconds_by_microbatch": {
+    "4": 691218.8645136887,
+    "8": 362218.6668789155,
+    "16": 212657.92968000023,
+    "32": 167343.5240094689,
+    "64": 144463.05925323072
+  }
+}

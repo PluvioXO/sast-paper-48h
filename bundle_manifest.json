@@ -11,12 +11,13 @@
     "src/paper_suite_data.py": "b2b61f08a2c4b69596bd8196f0dc637879e630e8b3281f1ad7bc1761982a5aec",
     "src/paper_suite_analysis.py": "c00dce9ac6bd4a7d0bd5b940bc07708fbfacc4d73423310e85d48f1f8b09bbff",
     "requirements/requirements-paper-linux.txt": "3184c394a8d06752bb0b6e578390e65a670bbeb1bc3985fd5f0175149e860c93",
-    "docs/paper_experiments.md": "05142319118732c060664dd0e650a85da803f08ac2151942d8a1452fd89c8587",
+    "docs/paper_experiments.md": "80013424bb80f08df03c020c2f387886ae0738de91674873873aac27563b2360",
     "paper_48h.json": "73b7e80fcbb9de4643f8976f8622452ae778e0a9d53adcfcd2d12bd140e02e98",
     "tests/test_paper_suite.py": "48afce7f2f61d892b3bede838b878b3c8aa6ce1d479e2e6095e5369c61b9bc17",
     "tests/conftest.py": "bda704163871b58fa8cacb6a25e11d7a7255dbdcce2d147469f89c415d6a4928",
-    "README.md": "6c860e655b4499e89cc68168f2dabdde6dbb7cf011d0175ec1cea32600fdca4f",
+    "README.md": "b9fe0babe8335502cd313911990af99e21d8b6f3b00a5a1620a89dddb6e698f1",
     ".gitignore": "9e0f7ffc6e8c7aee50dd3f30bc51ada1624f6dc7475e2dc8a1417a760ef38769",
-    "docs/paper_suite_validation.json": "8ac2f48a3f79552b9ca77137fff90a89786553c155fdd462164ebb4a05d9b82c"
+    "docs/paper_suite_validation.json": "8ac2f48a3f79552b9ca77137fff90a89786553c155fdd462164ebb4a05d9b82c",
+    "docs/paper_suite_microbatch_validation.json": "3993ef8d5837400a0cffc2efdd5385987b300f14b685d05998bdf6595617fe85"
   }
 }
